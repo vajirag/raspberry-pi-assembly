@@ -9,8 +9,8 @@ _start:
     svc 0               @ software interrupt to call system call 4
 
 @exit from program with return code 0
-    mov R0, #0          @ return code
-    mov R7, #1          @ 
+    mov R0, #0          @ argument for system call - return code
+    mov R7, #1          @ system call number
     svc 0               @ software interrupt to call system call 1
 
 .data
