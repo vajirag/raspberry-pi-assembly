@@ -2,7 +2,7 @@
 .global _start @program global_start
 
 _start:
-    mov R0, #1          @ here, #1 is an immediate operand, which means it stores as a part of instruction
+    mov R0, #1          @ stdout=1, #1 is an immediate operand, which means it stores as a part of instruction
     ldr R1, =banner     @ banner to print, use the lable
     mov R2, #19         @ length of the banner
     mov R7, #4          @ store system call number in R7 to called in next line
