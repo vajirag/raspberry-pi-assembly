@@ -13,7 +13,7 @@ _repeat:
 
     add R4, #1      @ increment loop count
     cmp R4, #10     @ results in CPRS
-    bls _repeat
+    bls _repeat     @ goto _repeat if R4 < 10
 
 _end:
     mov R0, #0
