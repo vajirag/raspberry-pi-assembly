@@ -20,29 +20,33 @@ _multiply:
     str  R0, [SP, #VAR0]
     str  R1, [SP, #VAR1]
     mov  R4, R1
-    mov  [SP, #SUM], #0
+    mov  R5, #0
+    str  R5, [SP, #SUM]
 _repeat_add:
-    lrd  R0, [SP, #VAR0]
-    lrd  R1, [SP, #SUM]
+    ldr  R0, [SP, #VAR0]
+    ldr  R1, [SP, #SUM]
     bl _add
     str  R0, [SP, #SUM]
     sub  R4, #1
     cmp  R4, #0
     bgt  _repeat_add
-    lrd  R0, [SP, #SUM]
+    ldr  R0, [SP, #SUM]
     add  SP, #SF_END
     pop  {R4-R12, PC}
 
 _start:
-    mov R0, 2
-    mov R1, 3
-    bl multiply
+    mov R0, #2
+    mov R1, #3
+    bl _multiply
+
+    
 
     mov R0, #0
     mov R7, #1
     svc 0
 
-
+.data
+banner:  .ascii "*-*-*-*-*-*-*-" 
 
 
 
