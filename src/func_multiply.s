@@ -37,9 +37,14 @@ _repeat_add:
 _start:
     mov R0, #2
     mov R1, #3
-    bl _multiply
+    bl _multiply   @ R0 = multiply(2, 3) = 2 * 3
+    mov R5, R0
 
-    
+    mov R0, #1
+    ldr R1, =banner
+    mov R2, R5     @ printing results as length of banner
+    mov R7, #4
+    svc 0
 
     mov R0, #0
     mov R7, #1
