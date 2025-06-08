@@ -11,12 +11,18 @@ Stack growns downwards in memory.
 
 A stack frame is a section of the stack memory created for each function call (to keep track of local vars, store the return address and optionally store rbp)
 
-Example of how to setup a stack frame
+Example of how to setup a stack frame when a function is called
 
-BP: is a register used to point to the base of the current stack frame inside a function.
+BP: points to the base of the current stack frame inside a function.
+SP: points to the top of the stack
 ```
 main:
-    push    rbp        # save caller's BP
-    mov     rbp, rsp   # Set BP for current frame
-    sub     rsp, 16    # Allocate space for locals
+    push    rbp        # save caller's BP; i.e dec sp by 8 bytes and stores rbp at [rsp]
+    mov     rbp, rsp   # Set BP for current frame start point
+    sub     rsp, 16    # Allocate space for locals 8 bytes vars
+```
+
+Example of what happen on function return
+```
+
 ```
