@@ -26,3 +26,19 @@ Example of what happen on function return
 ```
 
 ```
+
+Example of allocating 16 bytes of spaces on the stack by dec the stack pointer.
+```
+sub rsp, 16
+```
+```
+Stack after sub rsp, 16:
+
++------------------+  ← rbp (saved old rbp)
+|                  |
+|  local storage   |  ← rsp (now 16 bytes lower)
+|    (16 bytes)    |
+|                  |
++------------------+
+
+```
