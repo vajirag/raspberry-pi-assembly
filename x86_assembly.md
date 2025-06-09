@@ -24,7 +24,8 @@ main:
 
 Example of what happen on function return
 ```
-
+    pop     rbp        # Pop saved rpb of the caller
+    ret                # Pop return address and set to eip
 ```
 
 Example of allocating 16 bytes of spaces on the stack by dec the stack pointer.
